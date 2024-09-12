@@ -2,7 +2,6 @@
   <h2>Proyectos</h2>
   <ul class="project-list">
     <li *ngFor="let project of projects" class="project-card" (click)="goToProject(project._id)">
-      {{project._id}}
       <div class="project-image" *ngIf="project.image">
         <img src="{{url + 'get-image/' + (project.image | removePrefix: 'uploads/')}}" alt="{{project.name}}">
       </div>
