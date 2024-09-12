@@ -1,0 +1,74 @@
+/* Estilos generales */
+.container {
+  padding: 10px 50px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container h2 {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form p {
+  width: 100%;
+}
+
+input[type="submit"] {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+form input[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  padding: 5px;
+  margin-top: 15px;
+  color: white;
+  background: rgba(53, 103, 164, 1);
+  border: 1px solid rgba(13, 67, 143, 1);
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background: rgba(53, 103, 164, 0.8);
+  border: 1px solid rgba(13, 67, 143, 1);
+  cursor: pointer;
+}
+
+form input[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed !important;
+}
+
+form > p > span {
+  padding: 5px;
+  color: darkred;
+}

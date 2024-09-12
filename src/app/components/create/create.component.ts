@@ -1,12 +1,17 @@
 import {Component} from '@angular/core';
 import {Project} from "../../models/project";
 import {ProjectService} from "../../services/project.service";
+import {FormsModule, NgForm} from "@angular/forms";
+import {NgIf} from "@angular/common";
 
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule,
+    NgIf
+  ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css',
   providers: [ProjectService]
@@ -26,5 +31,24 @@ export class CreateComponent {
     this.title = "Crear proyecto";
     this.project = new Project('', '', '', '', this.currentYear, '', '');
     this.status = 'pending';
+  }
+
+  onSubmit(projectForm: NgForm) {
+    console.log(this.project);
+    this._projectService.saveProject(this.project).subscribe(
+        response => {
+          console.log(response);
+            // if (response.project) {
+            //     this.status = 'success';
+            //     this.project = response.project;
+            //     projectForm.reset();
+            // } else {
+            //     this.status = 'failed';
+            // }
+        },
+        error => {
+            console.log(<any>error);
+        }
+    );
   }
 }

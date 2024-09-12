@@ -1,1 +1,47 @@
-<p>create works!</p>
+<div class="container">
+  <h2>{{ title }}</h2>
+
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+      <p>
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="project.name" required>
+        <span *ngIf="name.touched && !name.valid">
+              El nombre es obligatorio
+              </span>
+      <p>
+      <p>
+        <label for="description">Descripción</label>
+      <textarea id="description" name="description" #description="ngModel" [(ngModel)]="project.description" required></textarea>
+        <span *ngIf="name.touched && !name.valid">
+              La descripción es obligatoria
+              </span>
+      <p>
+      <p>
+        <label for="category">Categoría</label>
+        <input type="text" id="category" name="category" #category="ngModel" [(ngModel)]="project.category" required>
+        <span *ngIf="name.touched && !name.valid">
+              La categoría es obligatoria
+              </span>
+      <p>
+
+      <p>
+        <label for="year">Año de lanzamiento</label>
+        <input type="number" id="year" name="year" #name="ngModel" [(ngModel)]="project.year">
+      <p>
+
+      <p>
+        <label for="langs">Lenguajes</label>
+        <input type="text" id="langs" name="langs" #name="ngModel" [(ngModel)]="project.langs" required>
+        <span *ngIf="name.touched && !name.valid">
+              El nombre es obligatorio
+              </span>
+      <p>
+
+      <p>
+       <label for="image">Imagen</label>
+      <input type="file" id="image" name="image" #image="ngModel" [(ngModel)]="project.image" >
+    </p>
+
+      <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid">
+    </form>
+</div>
