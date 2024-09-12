@@ -1,0 +1,43 @@
+/*sobre mi*/
+#about {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+#title {
+  width: 70%;
+  text-align: center;
+  margin: 20px auto 70px;
+}
+
+#title h1 {
+  font-family: finger, serif;
+  font-size: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+#title h2 {
+  font-size: 25px;
+  color: gray;
+  margin: 5px auto;
+}
+
+article.about {
+  width: 70%;
+  margin: 0 auto 20px;
+  padding: 20px;
+  font-size: 23px;
+}
+
+.about h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.about p {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  text-align: justify;
+}
