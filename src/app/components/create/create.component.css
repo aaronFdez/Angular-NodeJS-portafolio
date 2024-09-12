@@ -72,3 +72,23 @@ form > p > span {
   padding: 5px;
   color: darkred;
 }
+
+.message {
+  padding: 5px;
+  width: 35%;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.success {
+  background: green;
+}
+
+.success a {
+  color: white;
+}
+
+.failed {
+  background: #e94242;
+}
