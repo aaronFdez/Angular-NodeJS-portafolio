@@ -26,6 +26,7 @@ export class CreateComponent {
   public status: string;
   public currentYear = new Date().getFullYear();
   public filesToUpload: Array<File>;
+  public save_project: any;
 
   constructor(private _projectService: ProjectService, private _uploadService: UploadService) {
     this.title = "Crear proyecto";
@@ -35,35 +36,40 @@ export class CreateComponent {
   }
 
   onSubmit(projectForm: NgForm) {
-    console.log(this.project);
     this._projectService.saveProject(this.project).subscribe(
-      (response: any) => {  // Cambié 'ProjectResponse' a 'any' para manejar cualquier respuesta
+      (response: any) => {
         if (response.project) {
+
           if (this.filesToUpload && this.filesToUpload.length > 0) {
-            // Subir imágenes solo si hay archivos
-            this._uploadService.makeFileRequest(global.url + 'upload-image/' + response.project._id, [], this.filesToUpload, 'image')
-              .then((result: any) => {
-                console.log(result);
-                this.status = 'success';
-                projectForm.reset();
-              })
-              .catch((error: any) => {
-                console.error('Error uploading files:', error);
-                this.status = 'failed';
-              });
+            this.uploadImage(response.project._id, projectForm);
           } else {
-            // Si no hay archivos, simplemente marca como éxito
+            this.save_project = response.project;
             this.status = 'success';
             projectForm.reset();
           }
         } else {
           this.status = 'failed';
+          console.error('No se pudo guardar el proyecto.');
         }
       },
       error => {
-        console.log(<any>error);
+        this.status = 'failed';
+        console.error('Error al guardar el proyecto:', error);
       }
     );
+  }
+
+  uploadImage(projectId: string, projectForm: NgForm) {
+    this._uploadService.makeFileRequest(global.url + 'upload-image/' + projectId, [], this.filesToUpload, 'image')
+      .then((result: any) => {
+        this.save_project = result.project;
+        this.status = 'success';
+        projectForm.reset();
+      })
+      .catch((error: any) => {
+        console.error('Error al subir la imagen:', error);
+        this.status = 'failed';
+      });
   }
 
 

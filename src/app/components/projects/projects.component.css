@@ -26,6 +26,7 @@ h2 {
   display: flex;
   flex-direction: column; /* Asegura que la imagen y el texto estén en columna */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .project-card:hover {

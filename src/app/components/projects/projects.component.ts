@@ -4,6 +4,8 @@ import {ProjectService} from "../../services/project.service";
 import { global} from "../../services/global";
 import {NgForOf, NgIf} from "@angular/common";
 import {RemovePrefixPipe} from "../../remove-prefix.pipe";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-projects',
@@ -20,6 +22,7 @@ import {RemovePrefixPipe} from "../../remove-prefix.pipe";
 export class ProjectsComponent implements OnInit {
   public projects: Project[];
   public url: string;
+  private router: Router = new Router();
 
   constructor(
       private _projectService: ProjectService
@@ -43,5 +46,11 @@ export class ProjectsComponent implements OnInit {
               console.log(<any>error);
           }
       );
+  }
+
+  goToProject(projectId: string) {
+    this.router.navigate(['/proyecto', projectId]).then(r => {
+        console.log('Navigated to project:', projectId);
+    });
   }
 }
