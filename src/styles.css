@@ -90,6 +90,21 @@ header a:hover, .actived {
   padding-top: 120px;
 }
 
+.container {
+  padding: 10px 50px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container h2 {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
 /*footer*/
 footer {
   width: 75%;

@@ -1,1 +1,15 @@
-<p>projects works!</p>
+<div class="container">
+  <h2>Proyectos</h2>
+  <ul class="project-list">
+    <li *ngFor="let project of projects" class="project-card">
+      <div class="project-image" *ngIf="project.image">
+        <img src="{{url + 'get-image/' + (project.image | removePrefix: 'uploads/')}}" alt="{{project.name}}">
+        {{project.image}}
+      </div>
+      <div class="project-details">
+        <h3>{{project.name}}</h3>
+        <p>{{project.category}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
