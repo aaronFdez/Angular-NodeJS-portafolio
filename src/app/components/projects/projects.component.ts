@@ -49,8 +49,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   goToProject(projectId: string) {
-    this.router.navigate(['/proyecto', projectId]).then(r => {
-        console.log('Navigated to project:', projectId);
-    });
+    this.router.navigate(['/proyecto', projectId]);
   }
 }

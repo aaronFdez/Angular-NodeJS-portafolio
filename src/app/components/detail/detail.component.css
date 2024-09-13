@@ -14,18 +14,29 @@
 
 .project-body {
   display: flex;
+  align-items: center;  /* Centra verticalmente el contenido */
   gap: 20px;
+  min-height: 300px; /* Altura mínima para que se vea bien el diseño */
+}
+
+.project-image {
+  flex: 0 0 40%;  /* Imagen ocupará el 40% del espacio */
+  display: flex;
+  justify-content: center;  /* Centra la imagen horizontalmente en su contenedor */
 }
 
 .project-image img {
-  max-width: 300px;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .project-info {
-  flex: 1;
+  flex: 1; /* Ocupará el resto del espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Centra el texto verticalmente */
 }
 
 .project-info h3 {
@@ -47,7 +58,6 @@
   font-size: 18px;
   color: red;
 }
-
 
 .project-actions {
   margin-top: 20px;

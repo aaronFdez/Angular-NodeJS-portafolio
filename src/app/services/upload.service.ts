@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {global} from './global';
+import {Project} from '../models/project';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UploadService {
     }
 
 
-    makeFileRequest(url: string, params: Array<string>, files: Array<File>, name: string) {
+    makeFileRequest(url: string, params: Array<string>, files: Array<File>, name: string): Promise<{ project: Project }> {
         return new Promise(function (resolve, reject) {
           const formData: any = new FormData();
           const xhr = new XMLHttpRequest();
