@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectFormComponent } from '../project-form/project-form.component';
 import { ProjectService } from "../../services/project.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Project } from "../../models/project";
 
 
@@ -18,7 +18,8 @@ export class EditComponent implements OnInit {
 
   constructor(
     private _projectService: ProjectService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -28,6 +29,9 @@ export class EditComponent implements OnInit {
     });
   }
 
+  onSaveSuccess() {
+    this.router.navigate(['/proyecto', this.project._id]);
+  }
   getProject(id: string) {
     this._projectService.getProject(id).subscribe(
       (response: any) => {
