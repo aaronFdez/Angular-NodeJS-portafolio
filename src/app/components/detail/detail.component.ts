@@ -5,7 +5,6 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {Project} from "../../models/project";
 import {NgIf} from "@angular/common";
 import {RemovePrefixPipe} from "../../remove-prefix.pipe";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-detail',
@@ -22,6 +21,7 @@ import {Observable} from "rxjs";
 export class DetailComponent implements OnInit {
   public url: string;
   public project: Project | undefined;
+  public confirm: boolean;
 
   constructor(
     private _projectService: ProjectService,
@@ -29,6 +29,7 @@ export class DetailComponent implements OnInit {
     private _route: ActivatedRoute
   ) {
     this.url = global.url;
+    this.confirm = false;
   }
 
   ngOnInit() {
@@ -58,11 +59,6 @@ export class DetailComponent implements OnInit {
         console.log(<any>error);
       }
     );
-  }
-
-
-  updateProject(_id: string) {
-
   }
 
   getImageUrl(): string {

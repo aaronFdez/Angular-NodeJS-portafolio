@@ -16,15 +16,29 @@
     </div>
   </div>
 
-  <!-- Botones de acciones (editar y eliminar) -->
-  <div class="row mt-4">
+  <div class="row mt-4" *ngIf="!confirm">
     <div class="col-12 text-center actions">
       <button class="button-edit" [routerLink]="['/editar-proyecto', project._id]">
         <i class="fa fa-pencil" aria-hidden="true"></i> Editar
       </button>
-      <button class="button-delete" (click)="deleteProject(project._id)">
+      <button class="button-delete" (click)="confirm = true">
         <i class="fa fa-trash" aria-hidden="true"></i> Eliminar
       </button>
     </div>
   </div>
+
+  <div class="row mt-4" *ngIf="confirm">
+    <div class="col-12 text-center actions">
+      <button class="button-edit" (click)="confirm = false">
+        <i class="fa fa-times" aria-hidden="true"></i> Cancelar
+      </button>
+      <button class="button-delete" (click)="deleteProject(project._id)">
+        <i class="fa fa-trash-alt" aria-hidden="true"></i> Eliminar definitivamente
+      </button>
+      <br>
+      <br>
+      <b>¿Estás seguro que quieres eliminar el proyecto?</b>
+    </div>
+  </div>
+
 </div>
